@@ -1,74 +1,92 @@
-CREATE DATABASE CARFORUM;
+create database carforum;
 
-USE CARFORUM;
-DROP TABLE USERACCOUNT;
-CREATE TABLE USERACCOUNT(
-USERID INT AUTO_INCREMENT PRIMARY KEY,
-FName VARCHAR(30) NOT NULL,
-LName VARCHAR(30) NOT NULL,
-PASSWORD VARCHAR(40) NOT NULL,
-CARINTERESTS VARCHAR(80) NOT NULL,
-FRIENDLIST INT(1) NOT NULL,
-DESCRIPTION VARCHAR(500) NOT NULL,
-PREFERENCES VARCHAR(400) NOT NULL,
-IMAGEID INT(10));
+use carforum;
 
-ALTER TABLE USERACCOUNT ADD CONSTRAINT IMAGE_FK FOREIGN KEY (IMAGEID) REFERENCES IMAGE(IMAGEID);
+create table Useraccount(
+userid int auto_increment primary key,
+fname varchar(30) not null,
+lname varchar(30) not null,
+password varchar(40) not null,
+taginterests varchar(80) not null,
+friendlist int(3) not null,
+description varchar(500) not null,
+preferences varchar(400) not null,
+imageid int(10));
+alter table Useraccount add constraint image_fk foreign key (imageid) references image(imageid);
 
+create table Friends(
+friendid int auto_increment primary key,
+userid int (225),
+fname varchar(30) not null,
+lname varchar(30) not null,
+password varchar(40) not null,
+taginterests varchar(80) not null,
+description varchar(500) not null,
+preferences varchar(400) not null,
+friendlist int (3) not null,
+imageid int(10));
+alter table Friends add constraint image_fk foreign key (imageid) references image(imageid);
 
-DROP TABLE EVENT;
-CREATE TABLE EVENT (
-EVENTID INT AUTO_INCREMENT PRIMARY KEY,
-EVENTNAME VARCHAR(30) NOT NULL,
-USERID INT (225),
-EVENTDESCRIPTION VARCHAR(30) NOT NULL,
-EVENTLOCATION VARCHAR(60) NOT NULL,
-DateTimeStart DATETIME);
-
-ALTER TABLE EVENT ADD CONSTRAINT USERACCOUNT_FK FOREIGN KEY (USERID) REFERENCES USERACCOUNT(USERID);
-
-
-create table IMAGE (
-IMAGEID int(10) AUTO_INCREMENT PRIMARY KEY,
-IMAGE BLOB NOT NULL,
-USERID INT(225);
---ALTER TABLE IMAGE ADD CONSTRAINT USERACCOUNT_FK FOREIGN KEY (USERID) REFERENCES USERACCOUNT(USERID);
-
-
-CREATE TABLE PAGE (
-PAGEID INT AUTO_INCREMENT PRIMARY KEY,
-PAGENAME VARCHAR(30) NOT NULL,
-DESCRIPTION VARCHAR(500) NOT NULL,
-LOCATION VARCHAR(60) NOT NULL,
-USERID INT (225),
-IMAGEID INT (10));
+create table Event (
+eventid int auto_increment primary key,
+eventname varchar(30) not null,
+userid int (225),
+eventdescription varchar(30) not null,
+eventlocation varchar(60) not null,
+datetimestart datetime,
+usersgoing int (3),
+alter table Event add constraint useraccount_fk foreign key (userid) references useraccount(userid);
 
 
-ALTER TABLE PAGE ADD CONSTRAINT FK_IMAGE FOREIGN KEY (IMAGEID) REFERENCES IMAGE(IMAGEID);
-ALTER TABLE PAGE ADD CONSTRAINT FK_USERACCOUNT FOREIGN KEY (USERID) REFERENCES USERACCOUNT(USERID);
+create table Image (
+imageid int(10) auto_increment primary key,
+originid int (10),
+imagetype varchar (40),
+storedimage varchar(10),
+imagesize int (225),
+likes varchar (225),
+image blob not null,
+userid int(225),
+datetimestart datetime);
+alter table Image add constraint useraccount_fk foreign key (userid) references useraccount(userid);
 
-CREATE TABLE CARS (
-CARID INT AUTO_INCREMENT PRIMARY KEY,
-TAGS VARCHAR(30) NOT NULL,
-CARNAME VARCHAR(500) NOT NULL,
-CARDESCRIPTION VARCHAR(500) NOT NULL,
-IMAGEID INT (10));
+
+create table Page (
+pageid int auto_increment primary key,
+pagename varchar(30) not null,
+pagedescription varchar(500) not null,
+pagelocation varchar(60) not null,
+pagetags varchar(225),
+userid int (225),
+imageid int (10));
+alter table Page add constraint fk_image foreign key (imageid) references image(imageid);
+alter table Page add constraint fk_useraccount foreign key (userid) references useraccount(userid);
 
 
---ALTER TABLE CARS ADD CONSTRAINT IMAGE_FK FOREIGN KEY (IMAGEID) REFERENCES IMAGE(IMAGEID);
+create table Cars (
+carid int auto_increment primary key,
+carname varchar(500) not null,
+cartags varchar(30) not null,
+cardescription varchar(500) not null,
+imageid int (10));
+alter table Cars add constraint image_fk foreign key (imageid) references image(imageid);
 
-CREATE TABLE MANUFACTURER (
-MANUID INT AUTO_INCREMENT PRIMARY KEY,
-MANUFACTURERNAME VARCHAR(500) NOT NULL,
-TAGS VARCHAR(30) NOT NULL,
-MANUFACTURERDESCRIPTION VARCHAR(500) NOT NULL,
-IMAGEID INT (10));
---ALTER TABLE MANUFACTURER ADD CONSTRAINT IMAGE_FK FOREIGN KEY (IMAGEID) REFERENCES IMAGE(IMAGEID);
 
-ALTER TABLE USERACCOUNT ADD CONSTRAINT IMAGE_FK FOREIGN KEY (IMAGEID) REFERENCES IMAGE(IMAGEID);
-ALTER TABLE EVENT ADD CONSTRAINT USERACCOUNT_FK FOREIGN KEY (USERID) REFERENCES USERACCOUNT(USERID);
---ALTER TABLE IMAGE ADD CONSTRAINT USERACCOUNT_FK FOREIGN KEY (USERID) REFERENCES USERACCOUNT(USERID);
-ALTER TABLE PAGE ADD CONSTRAINT FK_IMAGE FOREIGN KEY (IMAGEID) REFERENCES IMAGE(IMAGEID);
-ALTER TABLE PAGE ADD CONSTRAINT FK_USERACCOUNT FOREIGN KEY (USERID) REFERENCES USERACCOUNT(USERID);
---ALTER TABLE CARS ADD CONSTRAINT IMAGE_FK FOREIGN KEY (IMAGEID) REFERENCES IMAGE(IMAGEID);
---ALTER TABLE MANUFACTURER ADD CONSTRAINT IMAGE_FK FOREIGN KEY (IMAGEID) REFERENCES IMAGE(IMAGEID);
+create table Manufacturer (
+manuid int auto_increment primary key,
+manufacturername varchar(500) not null,
+manufacturertags varchar(30) not null,
+manufacturerdescription varchar(500) not null,
+imageid int (10));
+alter table Manufacturer add constraint image_fk foreign key (imageid) references image(imageid);
+
+
+
+
+--1.alter table useraccount add constraint image_fk foreign key (imageid) references image(imageid);
+--2.alter table event add constraint useraccount_fk foreign key (userid) references useraccount(userid);
+--3.alter table page add constraint fk_image foreign key (imageid) references image(imageid);
+--4.alter table page add constraint fk_useraccount foreign key (userid) references useraccount(userid);
+--alter table cars add constraint image_fk foreign key (imageid) references image(imageid);
+--alter table manufacturer add constraint image_fk foreign key (imageid) references image(imageid);
+--alter table image add constraint useraccount_fk foreign key (userid) references useraccount(userid);
