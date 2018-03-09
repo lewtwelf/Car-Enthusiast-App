@@ -1,0 +1,37 @@
+body {
+    background-color: #f44265;
+}
+
+header {
+    text-align: center;
+
+}
+
+/*Navigation styles*/
+
+nav {
+    text-align: center;
+    background-color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+}
+
+.vis {
+    padding-top: 10px;
+    background-color: white;
+    border-radius: 6px;
+    margin: 1% 1% 1% 1%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 1%;
+}
+
+.grid-item {
+    vertical-align: center;
+}

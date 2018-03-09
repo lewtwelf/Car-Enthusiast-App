@@ -1,0 +1,18 @@
+#loginArticle {
+    line-height: 50px;
+    height: 55%;
+    text-align: center;
+    color: #323a47;
+    vertical-align: middle;
+}
+
+#loginElements {
+    vertical-align: middle;
+}
+
+#loginButton {
+    width: 70%;
+    color: lightgray;
+    background-color: #323a47;
+    border-radius: 4px;
+}
