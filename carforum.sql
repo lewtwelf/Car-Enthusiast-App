@@ -4,10 +4,10 @@ use carforum;
 
 create table Useraccount(
 userid int auto_increment primary key,
+userName varchar(30) not null unique,
 fname varchar(30) not null,
 lname varchar(30) not null,
 password varchar(40) not null,
-taginterests varchar(80) not null,
 friendlist int(3) not null,
 description varchar(500) not null,
 preferences varchar(400) not null,
