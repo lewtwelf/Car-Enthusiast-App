@@ -11,4 +11,3 @@ app.listen(8080, (err) => {
 });
 
 app.use('/', express.static(path.join(__dirname, '../front/'), { extensions: ['html'] }));
-//app.get("/login", express.static());
