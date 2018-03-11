@@ -3,7 +3,7 @@
 const express = require('express')
 const app = express()
 const path = require('path')
-//const db = require(sql-model);
+const db = require('./sqlmodel');
 
 app.listen(8080, (err) => {
     if (err) console.error('error starting server', err);
