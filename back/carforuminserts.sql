@@ -8,7 +8,7 @@ insert into Useraccount (fname,lname,password,taginterests,friendlist,descriptio
 
 insert into Useraccount (fname,lname,password,taginterests,friendlist,description,preferences) values ('Mack', 'Smith','macks123','#cars','180','Hey Im Mack','I love Spyker cars');
 
-insert into Useraccount (fname,lname,password,taginterests,friendlist,description,preferences) values ('David', 'Jens','dave123','#carenthusiast #lovecars','200','Hey im a car enthusiast','I love Ferrari's');
+insert into Useraccount (fname,lname,password,taginterests,friendlist,description,preferences) values ('David', 'Jens','dave123','#carenthusiast #lovecars','200','Hey im a car enthusiast','I love Ferraris');
 
 
 
@@ -22,7 +22,7 @@ insert into Friends (fname,lname,password,taginterests,friendlist,description,pr
 
 insert into Friends (fname,lname,password,taginterests,friendlist,description,preferences) values ('Chase', 'Easton','chasey123','#carenthusiast','99','Hey im chase.','I love Volkswagens');
 
-insert into Friends (fname,lname,password,taginterests,friendlist,description,preferences) values ('Jacob', 'Sens','jac123','#carsaremylife','220','Hi im Jacob.','I love Audi's');
+insert into Friends (fname,lname,password,taginterests,friendlist,description,preferences) values ('Jacob', 'Sens','jac123','#carsaremylife','220','Hi im Jacob.','I love Audis');
 
 
 
@@ -44,8 +44,8 @@ insert into Post (Content,datetime) values ('Who is going to the LA AutoShow','1
 insert into Post (Content,datetime) values ('Who is going to the California AutoShow','16-04-2018 16:00');
 insert into Post (Content,datetime) values ('Who is going to the Southampton AutoShow','19-04-2018 18:00');
 
-SELECT `text`, `UserAccount`, `datetime` FROM `Post` WHERE `Id` = '1'
-SELECT `text`, `Friends`, `datetime` FROM `Post` WHERE `Id` = '1'
+select `text`, `UserAccount`, `datetime` FROM `Post` WHERE `Id` = '1'
+select `text`, `Friends`, `datetime` FROM `Post` WHERE `Id` = '1'
 
 insert into Cars (carname,cartags,cardescription) values ('Honda Fit','#Honda #smoothride','5-DOOR HATCHBACK 2001-present honda global small car');
 

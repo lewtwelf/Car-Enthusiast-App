@@ -83,15 +83,15 @@ alter table Image add constraint useraccount_fk foreign key (userid) references 
 
 create table Post (
 
-postID int (20) auto_increment primary key,
+postID int(20) auto_increment primary key,
 
-text varchar (225),
+text varchar(225),
 
 datetimestart datetime,
 
 userid(225),
 
-friendid int (255);
+friendid int(255);
 
 
 alter table Post add constraint useraccount_fk foreign key () references useraccount(userid);
