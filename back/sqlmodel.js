@@ -4,6 +4,20 @@ const mysql = require('mysql2/promise');
 
 const config = require('./config.json');
 
+async function listUsers() {
+  const sql = await init();
+
+  const query = 'SELECT userName FROM User';
+  const [rows] = await sql.query(query);
+  return rows;
+}
+
+async function insertUser(userName, fname, lname, password, description, preferences, imageid) {
+  const sql = await init();
+  const insertQuery = sql.format('INSERT INTO User SET ? ;', { userName, fname, lname, password, description, preferences, imageid });
+  await sql.query(insertQuery);
+}
+
 // create one connection to the database
 let sqlPromise = null;
 
