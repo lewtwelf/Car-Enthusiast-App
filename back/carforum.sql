@@ -6,9 +6,9 @@ use carforum;
 
 
 
-create table Useraccount(
+create table User(
 
-userid int auto_increment primary key,
+userid int primary key auto_increment,
 
 userName varchar(30) not null unique,
 
@@ -26,7 +26,7 @@ preferences varchar(400) not null,
 
 imageid int(10));
 
-alter table Useraccount add constraint image_fk foreign key (imageid) references image(imageid);
+alter table User add constraint image_fk foreign key (imageid) references image(imageid);
 
 
 
@@ -34,28 +34,11 @@ create table Friends(
 
 friendid int auto_increment primary key,
 
-userid int (225),
+userName varchar(30) not null
 
-fname varchar(30) not null,
+userid int);
 
-lname varchar(30) not null,
-
-password varchar(40) not null,
-
-taginterests varchar(80) not null,
-
-description varchar(500) not null,
-
-preferences varchar(400) not null,
-
-friendlist int (3) not null,
-
-imageid int(10));
-
-alter table Friends add constraint image_fk foreign key (imageid) references image(imageid);
-
-
-
+alter table Friends add constraint user_fk foreign key (userid) references User(userid);
 
 
 create table Image (
@@ -85,17 +68,14 @@ create table Post (
 
 postID int(20) auto_increment primary key,
 
-text varchar(225),
+text_content varchar(225),
 
 datetimestart datetime,
 
-userid(225),
-
-friendid int(255);
-
+userid(225));
 
 alter table Post add constraint useraccount_fk foreign key () references useraccount(userid);
-alter table Post add constraint friends_fk foreign key () references friends(friendid);
+
 
 
 
@@ -131,12 +111,6 @@ manufacturerdescription varchar(500) not null,
 imageid int (10));
 
 alter table Manufacturer add constraint image_fk foreign key (imageid) references image(imageid);
-
-
-
-
-
-
 
 
 
