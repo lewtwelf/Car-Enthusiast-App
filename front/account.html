@@ -1,14 +1,30 @@
+<!--
+/**
+* This is the Account page, containing a navigation bar at the bottom to go to the Newsfeed and Database of the application.
+*
+* @author  Matt Bishun, Jack Hickman
+* @version 1.0
+* @since   2018-03-10 
+*/
+-->
+
+
+<!--///This file is in HTML5.-->
 <DOCTYPE! html>
 <html>
     <head>
+<!--        *//Title of the page is Account.-->
         <title>Account</title>
         <link rel="stylesheet" type="text/css" href="main.css">
     </head>
     <body>
+<!--        // A blue line is created beneath the app icon.-->
         <header class="grid-container" style="border-bottom: 5px solid blue">
+<!--            // The app icon image is created here.-->
             <div class="vis" class="grid-item">
                 <img src="images/LamboSVStockImage.jpg" width="80%" height="90%" style="border-radius: 50%">
             </div>
+<!--            //Profile is created here.-->
             <div class="vis" class="grid-item" style="grid-column: 2/3">
                 <h3 id="accountUsername" style="margin: 0px 5px 0px 5px">Jack Hickman</h3>
                 <div style="background-color: #323a47; color: lightgrey">
@@ -17,10 +33,17 @@
             </div>
         </header>
         <article>
+<!--            //Body of account page.-->
             <div class="vis">
                 <p>This is where the user's posts will go!</p>
             </div>
         </article>
+<!--        // A hyperlink is created to the User settings page.-->
+        <p class ="Hyplink">
+        <a href="usersettings.html"> User Settings</a>
+        </p>
+        
+<!--       // Navigation Bar created. -->
         <nav id="navBar" class="grid-container">
             <a href="account.html" class="grid-item">My Account</a>
             <a href="news.html" class="grid-item">News</a>
