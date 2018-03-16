@@ -1,4 +1,4 @@
-<!--
+
 /**
 * This is the main css file for our Application.
 *
@@ -6,7 +6,7 @@
 * @version 1.0
 * @since   2018-03-10 
 */
--->
+
 
 
 body {
@@ -47,7 +47,7 @@ nav {
     vertical-align: center;
 }
 
-/*///Hyperlink positioning UP812199*// 
+/*///Hyperlink positioning UP812199*/
 .Hyplink a{
     color: white;
     position: absolute;
@@ -57,7 +57,7 @@ nav {
     
 }
 
-/*///Hovering over settings UP812199 *////
+/* Hovering over settings UP812199 */
 li a:hover{
      
     list-style-type: none;
@@ -71,8 +71,7 @@ li a:hover{
 
 }
 
-/*//Hover border UP812199*///
-
+/* Hover border UP812199 */
 ul {
     
     list-style-type: none;
